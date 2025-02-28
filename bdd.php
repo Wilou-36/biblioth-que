@@ -1,10 +1,6 @@
 <?php 
 
-$password = 'biblio';
-$username = 'biblio';
-$servername = '192.168.56.111';
-$dbname = 'bibliotheque';
-$port= 3306;
+
 class BDD {
     private $password = 'Quizz';
     private $username = 'quizz2';
