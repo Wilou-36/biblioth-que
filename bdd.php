@@ -2,10 +2,10 @@
 
 
 class BDD {
-    private $password = 'Quizz';
-    private $username = 'quizz2';
+    private $password = 'biblio';
+    private $username = 'biblio';
     private $servername = '192.168.56.111';
-    private $dbname = 'Quizz';
+    private $dbname = 'Biblio';
     private $port= 3306;
 
 	private $mysqli;
