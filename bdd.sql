@@ -8,7 +8,7 @@ CREATE TABLE Categorie (
     Nom VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE Maison_d_edition (
+CREATE TABLE Editeur (
     ID_edition INT PRIMARY KEY,
     Nom VARCHAR(255) NOT NULL
 );
@@ -29,7 +29,8 @@ CREATE TABLE Livre (
     FOREIGN KEY (ID_categorie) REFERENCES Categorie(ID_categorie)
 );
 
-CREATE TABLE Asso_4 ( -- Association entre Auteur et Livre
+-- Association entre Auteur et Livre
+CREATE TABLE Livre_auteur ( 
     ID_Auteur INT,
     ID_livre INT,
     PRIMARY KEY (ID_Auteur, ID_livre),
@@ -37,7 +38,8 @@ CREATE TABLE Asso_4 ( -- Association entre Auteur et Livre
     FOREIGN KEY (ID_livre) REFERENCES Livre(ID_livre)
 );
 
-CREATE TABLE Asso_10 ( -- Association entre Genre et Livre
+-- Association entre Genre et Livre
+CREATE TABLE Asso_10 ( 
     ID_genre INT,
     ID_livre INT,
     PRIMARY KEY (ID_genre, ID_livre),
@@ -54,7 +56,8 @@ CREATE TABLE Abonne (
     Telephone VARCHAR(20)
 );
 
-CREATE TABLE Asso_6 ( -- Association entre Abonné et Livre
+ -- Association entre Abonné et Livre
+CREATE TABLE Asso_6 (
     ID_abonne INT,
     ID_livre INT,
     PRIMARY KEY (ID_abonne, ID_livre),
