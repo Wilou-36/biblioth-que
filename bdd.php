@@ -4,7 +4,7 @@
 class BDD {
     private $password = 'biblio';
     private $username = 'biblio';
-    private $servername = '192.168.56.111';
+    private $servername = '192.168.1.60';
     private $dbname = 'Biblio';
     private $port= 3306;
 

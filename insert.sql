@@ -2,7 +2,7 @@
 INSERT INTO Genre (Nom) VALUES ('Science-fiction', 'Fantasy', 'Romance', 'Horreur');
 
 --insert table Categorie
-INSERT INTO Categorie (Nom) VALUES ('Roman', 'BD', 'Essai', 'Poésie');
+INSERT INTO Categorie (Nom) VALUES ('Roman', 'BD', 'Poésie' 'Essai');
 
 
 --insert table Editeur
