@@ -35,8 +35,8 @@ class BDD {
 		}
 	}
 	
-	/* Récupération de la liste des question */
-	public function getQuestion($question_id) {
+	/* Récupération de la liste des livres */
+	public function getLivre($livre_id) {
 		//TODO
 		
 		
