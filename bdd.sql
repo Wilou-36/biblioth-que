@@ -1,4 +1,4 @@
-CREATE TABLE Genre (
+/*CREATE TABLE Genre (
     ID_genre INT PRIMARY KEY,
     Nom VARCHAR(255) NOT NULL
 );
@@ -71,7 +71,7 @@ CREATE TABLE Pret (
     ID_abonne INT,
     FOREIGN KEY (ID_abonne) REFERENCES Abonne(ID_abonne)
 );
-
+*/
 
 
 --Partie 2
