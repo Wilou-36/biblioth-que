@@ -8,6 +8,6 @@
 	
 	$monapp -> afficherPage($page);
 	
-	
+	$book = "select nom from Livre;"
 	
 ?>

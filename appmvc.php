@@ -34,11 +34,11 @@
 			echo "Deuxieme page";
 			
 			
-			$reponses  = $this -> bdd -> getReponses(1);
+			$Livre  = $this -> bdd -> getLivre(1);
 			
 			echo '<ul>';
-			foreach($reponses as $reponse) {
-				echo '<li><input type="radio" name="reponses" value="'.$reponse -> id.'"> '.$reponse -> intitule.'</li>';
+			foreach($Livre as $Livre) {
+				echo '<li><input type="radio" name="Livre" value="'.$Livre -> id.'"> '.$Livre -> intitule.'</li>';
 			}
 			echo '</ul>';		
 			

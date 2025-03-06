@@ -2,10 +2,10 @@
 
 
 class BDD {
-    private $password = 'biblio';
-    private $username = 'biblio';
-    private $servername = '192.168.1.60';
-    private $dbname = 'Biblio';
+    private $password = "biblio";
+    private $username = "biblio";
+    private $servername = '192.168.1.50';
+    private $dbname = "biblio";
     private $port= 3306;
 
 	private $mysqli;
@@ -19,7 +19,7 @@ class BDD {
 	public function connexion() {
 		mysqli_report(MYSQLI_REPORT_OFF);
 		
-		$this -> mysqli = new mysqli(servername, username, password, dbname);
+		$this -> mysqli = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
 
 		if($this -> mysqli -> connect_errno != 0) {
 			return false;
@@ -30,16 +30,82 @@ class BDD {
 	
 	/* Déconnexion à la base de données */
 	public function deconnexion() {
-		if($this -> mysqli -> connect_errno != 0) {
+		if($this -> mysqli ) {
 			$this -> mysqli -> close();
+			$this -> mysqli = false;
 		}
 	}
-	
+
 	/* Récupération de la liste des livres */
-	public function getLivre($livre_id) {
-		//TODO
-		
-		
+	public function getLivre($ID_livre){
+		if (!$this->mysqli) return false;
+
+        $livres = [];  
+        $requete = $this->mysqli->prepare("SELECT * FROM livres WHERE id=?");
+        $requete->bind_param('i', $ID_livre);
+        $requete->execute();
+        $resultat = $requete->get_result();
+        
+        while ($enregistrement = $resultat->fetch_object()) {
+            $livres[] = $enregistrement;
+        }
+
+        $requete->close();
+        return $livres;
+	}
+	
+	/* Récupération de la liste des genres */
+	public function getgenre($ID_genre) {
+		if (!$this->mysqli) return false;
+
+        $genres = [];
+        $requete = $this->mysqli->prepare("SELECT * FROM genres WHERE id=?");
+        $requete->bind_param('i', $ID_genre);
+        $requete->execute();
+        $resultat = $requete->get_result();
+
+        while ($enregistrement = $resultat->fetch_object()) {
+            $genres[] = $enregistrement;
+        }
+
+        $requete->close();
+        return $genres;
+	}
+
+	/* Récupération de la liste des categories */
+	public function getcategorie($ID_categorie) {
+		if (!$this->mysqli) return false;
+
+        $categories = [];
+        $requete = $this->mysqli->prepare("SELECT * FROM categories WHERE id=?");
+        $requete->bind_param('i', $ID_categorie);
+        $requete->execute();
+        $resultat = $requete->get_result();
+
+        while ($enregistrement = $resultat->fetch_object()) {
+            $categories[] = $enregistrement;
+        }
+
+        $requete->close();
+        return $categories;
+	}
+
+	/* Récupération de la liste des auteurs */
+	public function getauteur($ID_auteur) {
+		if (!$this->mysqli) return false;
+
+        $auteurs = [];
+        $requete = $this->mysqli->prepare("SELECT * FROM auteurs WHERE id=?");
+        $requete->bind_param('i', $ID_auteur);
+        $requete->execute();
+        $resultat = $requete->get_result();
+
+        while ($enregistrement = $resultat->fetch_object()) {
+            $auteurs[] = $enregistrement;
+        }
+
+        $requete->close();
+        return $auteurs;
 	}
 	
 	
